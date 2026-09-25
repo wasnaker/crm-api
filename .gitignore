@@ -11,3 +11,5 @@
 /public/hot
 /Dockerfile
 .docker-compose.yml
+graphify-out/cost.json
+graphify-out/cache/

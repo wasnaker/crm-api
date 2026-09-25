@@ -1,0 +1,372 @@
+{
+  "communities": {
+    "0": [
+      "database_migrations_0001_01_01_000000_create_users_table",
+      "database_migrations_0001_01_01_000000_create_users_table_closure_1",
+      "database_migrations_0001_01_01_000000_create_users_table_closure_2",
+      "database_migrations_0001_01_01_000000_create_users_table_closure_3",
+      "database_migrations_0001_01_01_000000_create_users_table_down",
+      "database_migrations_0001_01_01_000000_create_users_table_up",
+      "database_migrations_0001_01_01_000001_create_cache_table",
+      "database_migrations_0001_01_01_000001_create_cache_table_closure_1",
+      "database_migrations_0001_01_01_000001_create_cache_table_closure_2",
+      "database_migrations_0001_01_01_000001_create_cache_table_down",
+      "database_migrations_0001_01_01_000001_create_cache_table_up",
+      "database_migrations_0001_01_01_000002_create_jobs_table",
+      "database_migrations_0001_01_01_000002_create_jobs_table_closure_1",
+      "database_migrations_0001_01_01_000002_create_jobs_table_closure_2",
+      "database_migrations_0001_01_01_000002_create_jobs_table_closure_3",
+      "database_migrations_0001_01_01_000002_create_jobs_table_down",
+      "database_migrations_0001_01_01_000002_create_jobs_table_up",
+      "database_migrations_2026_08_30_140926_create_personal_access_tokens_table",
+      "database_migrations_2026_08_30_140926_create_personal_access_tokens_table_closure_1",
+      "database_migrations_2026_08_30_140926_create_personal_access_tokens_table_down",
+      "database_migrations_2026_08_30_140926_create_personal_access_tokens_table_up",
+      "database_migrations_2026_09_18_170918_create_permission_tables",
+      "database_migrations_2026_09_18_170918_create_permission_tables_closure_1",
+      "database_migrations_2026_09_18_170918_create_permission_tables_closure_2",
+      "database_migrations_2026_09_18_170918_create_permission_tables_closure_3",
+      "database_migrations_2026_09_18_170918_create_permission_tables_closure_4",
+      "database_migrations_2026_09_18_170918_create_permission_tables_closure_5",
+      "database_migrations_2026_09_18_170918_create_permission_tables_down",
+      "database_migrations_2026_09_18_170918_create_permission_tables_up",
+      "database_migrations_2026_09_18_175902_create_personal_access_tokens_table",
+      "database_migrations_2026_09_18_175902_create_personal_access_tokens_table_closure_1",
+      "database_migrations_2026_09_18_175902_create_personal_access_tokens_table_down",
+      "database_migrations_2026_09_18_175902_create_personal_access_tokens_table_up",
+      "illuminate_database_migrations_migration",
+      "illuminate_database_schema_blueprint",
+      "illuminate_support_facades_schema"
+    ],
+    "1": [
+      "composer",
+      "composer_autoload",
+      "composer_autoload_dev",
+      "composer_autoload_dev_psr_4",
+      "composer_autoload_psr_4",
+      "composer_description",
+      "composer_extra",
+      "composer_extra_laravel",
+      "composer_keywords",
+      "composer_laravel_dont_discover",
+      "composer_license",
+      "composer_minimum_stability",
+      "composer_name",
+      "composer_prefer_stable",
+      "composer_psr_4_app",
+      "composer_psr_4_database_factories",
+      "composer_psr_4_database_seeders",
+      "composer_psr_4_tests",
+      "composer_repositories",
+      "composer_schema",
+      "composer_scripts",
+      "composer_scripts_dev",
+      "composer_scripts_setup",
+      "composer_scripts_test",
+      "composer_type"
+    ],
+    "2": [
+      "app_models_user",
+      "config_cache",
+      "config_database",
+      "config_session",
+      "database_factories_userfactory",
+      "database_factories_userfactory_closure_1",
+      "database_factories_userfactory_userfactory",
+      "database_factories_userfactory_userfactory_definition",
+      "database_factories_userfactory_userfactory_unverified",
+      "illuminate_database_eloquent_factories_factory",
+      "illuminate_support_facades_hash",
+      "illuminate_support_str",
+      "pdo_mysql",
+      "static"
+    ],
+    "3": [
+      "config_permission",
+      "database_seeders_databaseseeder",
+      "database_seeders_databaseseeder_databaseseeder",
+      "database_seeders_databaseseeder_databaseseeder_run",
+      "database_seeders_rbacseeder",
+      "database_seeders_rbacseeder_rbacseeder",
+      "database_seeders_rbacseeder_rbacseeder_run",
+      "illuminate_database_console_seeds_withoutmodelevents",
+      "illuminate_database_seeder",
+      "spatie_permission_defaultteamresolver",
+      "spatie_permission_models_permission",
+      "spatie_permission_models_role"
+    ],
+    "4": [
+      "public_vendor_scribe_js_tryitout_5_11_0",
+      "public_vendor_scribe_js_tryitout_5_11_0_cacheauthvalue",
+      "public_vendor_scribe_js_tryitout_5_11_0_canceltryout",
+      "public_vendor_scribe_js_tryitout_5_11_0_executetryout",
+      "public_vendor_scribe_js_tryitout_5_11_0_getcookie",
+      "public_vendor_scribe_js_tryitout_5_11_0_handleerror",
+      "public_vendor_scribe_js_tryitout_5_11_0_handleresponse",
+      "public_vendor_scribe_js_tryitout_5_11_0_hidecodesamples",
+      "public_vendor_scribe_js_tryitout_5_11_0_makeapicall",
+      "public_vendor_scribe_js_tryitout_5_11_0_makeapicall_additemtosearchparamsobject",
+      "public_vendor_scribe_js_tryitout_5_11_0_tryitout"
+    ],
+    "5": [
+      "bootstrap_app",
+      "bootstrap_app_closure_1",
+      "bootstrap_app_closure_2",
+      "bootstrap_app_closure_3",
+      "illuminate_auth_authenticationexception",
+      "illuminate_foundation_application",
+      "illuminate_foundation_configuration_exceptions",
+      "illuminate_http_request",
+      "public_index"
+    ],
+    "6": [
+      "composer_allow_plugins_pestphp_pest_plugin",
+      "composer_allow_plugins_php_http_discovery",
+      "composer_allow_plugins_wikimedia_composer_merge_plugin",
+      "composer_config",
+      "composer_config_allow_plugins",
+      "composer_config_optimize_autoloader",
+      "composer_config_preferred_install",
+      "composer_config_sort_packages"
+    ],
+    "7": [
+      "composer_require_dev",
+      "composer_require_dev_fakerphp_faker",
+      "composer_require_dev_laravel_pail",
+      "composer_require_dev_laravel_pint",
+      "composer_require_dev_laravel_sail",
+      "composer_require_dev_mockery_mockery",
+      "composer_require_dev_nunomaduro_collision",
+      "composer_require_dev_phpunit_phpunit"
+    ],
+    "8": [
+      "composer_require",
+      "composer_require_laravel_framework",
+      "composer_require_laravel_reverb",
+      "composer_require_laravel_tinker",
+      "composer_require_php",
+      "composer_require_spine_laravel_spine"
+    ],
+    "9": [
+      "illuminate_foundation_testing_testcase",
+      "tests_feature_exampletest",
+      "tests_feature_exampletest_exampletest",
+      "tests_feature_exampletest_exampletest_test_the_application_returns_a_successful_response",
+      "tests_testcase",
+      "tests_testcase_testcase"
+    ],
+    "10": [
+      "config_logging",
+      "monolog_handler_nullhandler",
+      "monolog_handler_streamhandler",
+      "monolog_handler_syslogudphandler",
+      "monolog_processor_psrlogmessageprocessor"
+    ],
+    "11": [
+      "config_sanctum",
+      "illuminate_cookie_middleware_encryptcookies",
+      "illuminate_foundation_http_middleware_validatecsrftoken",
+      "laravel_sanctum_http_middleware_authenticatesession",
+      "laravel_sanctum_sanctum"
+    ],
+    "12": [
+      "public_vendor_scribe_js_theme_default_5_11_0",
+      "public_vendor_scribe_js_theme_default_5_11_0_closesidebar",
+      "public_vendor_scribe_js_theme_default_5_11_0_hashchange",
+      "public_vendor_scribe_js_theme_default_5_11_0_setactivelanguage",
+      "public_vendor_scribe_js_theme_default_5_11_0_togglesidebar"
+    ],
+    "13": [
+      "illuminate_foundation_inspiring",
+      "illuminate_support_facades_artisan",
+      "routes_console",
+      "routes_console_closure_1"
+    ],
+    "14": [
+      "illuminate_support_facades_route",
+      "routes_api",
+      "routes_web",
+      "routes_web_get"
+    ],
+    "15": [
+      "phpunit_framework_testcase",
+      "tests_unit_exampletest",
+      "tests_unit_exampletest_exampletest",
+      "tests_unit_exampletest_exampletest_test_that_true_is_true"
+    ],
+    "16": [
+      "application",
+      "argvinput",
+      "artisan"
+    ],
+    "17": [
+      "app_providers_appserviceprovider",
+      "bootstrap_providers"
+    ],
+    "18": [
+      "config_app"
+    ],
+    "19": [
+      "config_auth"
+    ],
+    "20": [
+      "config_broadcasting"
+    ],
+    "21": [
+      "config_filesystems"
+    ],
+    "22": [
+      "config_mail"
+    ],
+    "23": [
+      "config_menus"
+    ],
+    "24": [
+      "config_profile_tabs"
+    ],
+    "25": [
+      "config_public_content"
+    ],
+    "26": [
+      "config_queue"
+    ],
+    "27": [
+      "config_reverb"
+    ],
+    "28": [
+      "config_services"
+    ],
+    "29": [
+      "config_settings_tabs"
+    ]
+  },
+  "cohesion": {
+    "0": 0.09523809523809523,
+    "1": 0.08,
+    "2": 0.16483516483516483,
+    "3": 0.24242424242424243,
+    "4": 0.2909090909090909,
+    "5": 0.3333333333333333,
+    "6": 0.25,
+    "7": 0.25,
+    "8": 0.3333333333333333,
+    "9": 0.4666666666666667,
+    "10": 0.4,
+    "11": 0.4,
+    "12": 0.5,
+    "13": 0.5,
+    "14": 0.5,
+    "15": 0.6666666666666666,
+    "16": 0.6666666666666666,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0
+  },
+  "gods": [
+    {
+      "id": "composer_require_dev",
+      "label": "require-dev",
+      "degree": 8
+    },
+    {
+      "id": "composer_require",
+      "label": "require",
+      "degree": 6
+    },
+    {
+      "id": "public_vendor_scribe_js_tryitout_5_11_0_executetryout",
+      "label": "executeTryOut()",
+      "degree": 5
+    },
+    {
+      "id": "composer_config",
+      "label": "config",
+      "degree": 5
+    },
+    {
+      "id": "database_factories_userfactory_userfactory",
+      "label": "UserFactory",
+      "degree": 4
+    },
+    {
+      "id": "database_seeders_databaseseeder_databaseseeder",
+      "label": "DatabaseSeeder",
+      "degree": 4
+    },
+    {
+      "id": "tests_testcase_testcase",
+      "label": "TestCase",
+      "degree": 4
+    },
+    {
+      "id": "composer_autoload_psr_4",
+      "label": "psr-4",
+      "degree": 4
+    },
+    {
+      "id": "composer_scripts",
+      "label": "scripts",
+      "degree": 4
+    },
+    {
+      "id": "composer_config_allow_plugins",
+      "label": "allow-plugins",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "ExampleTest",
+      "target": "TestCase",
+      "source_files": [
+        "tests/Feature/ExampleTest.php",
+        "tests/TestCase.php"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "inherits",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `require-dev` connect `require-dev` to `composer.json`?",
+      "why": "High betweenness centrality (0.019) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `config` connect `config` to `composer.json`?",
+      "why": "High betweenness centrality (0.018) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `require` connect `require` to `composer.json`?",
+      "why": "High betweenness centrality (0.014) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `description`, `keywords`, `dont-discover` to the rest of the system?",
+      "why": "35 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Illuminate\\Database\\Schema\\Blueprint` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `composer.json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
