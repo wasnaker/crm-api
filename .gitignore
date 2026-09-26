@@ -13,3 +13,4 @@
 .docker-compose.yml
 graphify-out/cost.json
 graphify-out/cache/
+graphify-out/2026-*
