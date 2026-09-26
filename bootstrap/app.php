@@ -4,6 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
+use Illuminate\Redis\RedisServiceProvider;
+use Illuminate\Cache\CacheServiceProvider;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -22,4 +24,8 @@ return Application::configure(basePath: dirname(__DIR__))
                 return response()->json(['message' => 'Unauthenticated'], 401);
             }
         });
-    })->create();
+    })
+    ->withProviders([
+        RedisServiceProvider::class,
+        CacheServiceProvider::class,
+    ])->create();

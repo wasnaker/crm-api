@@ -29,7 +29,8 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Modules\\SampleTasks\\": "Modules/SampleTasks/"
+            "Modules\\SampleTasks\\": "Modules/SampleTasks/",
+            "Modules\\Sample\\": "Modules/Sample/"
         }
     },
     "autoload-dev": {
