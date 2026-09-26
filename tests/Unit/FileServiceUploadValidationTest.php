@@ -18,6 +18,12 @@ class FileServiceUploadValidationTest extends TestCase
         parent::setUp();
 
         $this->service = new FileService();
+
+        // Every test gets a fake disk. Without this a test whose expectation
+        // fails can fall through into storeUpload() and write a real file into
+        // storage/app/private, which then blocks the web server from creating
+        // anything under a 700 directory it does not own.
+        Storage::fake('local');
     }
 
     public function test_it_allows_an_extension_on_the_allow_list(): void
@@ -106,11 +112,6 @@ class FileServiceUploadValidationTest extends TestCase
 
     public function test_validation_runs_before_the_file_uploading_event(): void
     {
-        config()->set('filesystems.disks.local', [
-            'driver' => 'local',
-            'root' => storage_path('app'),
-        ]);
-
         $dispatched = false;
         \Illuminate\Support\Facades\Event::listen(\Spine\Events\FileUploading::class, function () use (&$dispatched) {
             $dispatched = true;
@@ -130,8 +131,6 @@ class FileServiceUploadValidationTest extends TestCase
 
     public function test_store_upload_writes_an_allowed_file(): void
     {
-        Storage::fake('local');
-
         $path = $this->service->storeUpload(
             UploadedFile::fake()->create('invoice.pdf', 8, 'application/pdf'),
             'invoice',
