@@ -79,7 +79,7 @@ return [
     */
 
     'middleware' => [
-        'authenticate_session' => AuthenticateSession::class,
+        // 'authenticate_session' => AuthenticateSession::class,  // Disabled for API-only Bearer token auth
         'encrypt_cookies' => EncryptCookies::class,
         'validate_csrf_token' => ValidateCsrfToken::class,
     ],
