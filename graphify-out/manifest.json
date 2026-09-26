@@ -18,10 +18,10 @@
     "semantic_hash": "888c810b5a4720916f07aa05dd2c2dd3"
   },
   "composer.json": {
-    "mtime": 1790265614.1822352,
-    "seen": 1790347749.8281488,
-    "ast_hash": "23eaafa7cba503d66e5b9d41b8a7f980",
-    "semantic_hash": "23eaafa7cba503d66e5b9d41b8a7f980"
+    "mtime": 1790380262.8484888,
+    "seen": 1790396086.835633,
+    "ast_hash": "607b3a7d4f6c54a28a979a6967eb533d",
+    "semantic_hash": ""
   },
   "config/app.php": {
     "mtime": 1773507240.0,
@@ -131,12 +131,6 @@
     "ast_hash": "9f58b179b032a677b86f0f446b331285",
     "semantic_hash": "9f58b179b032a677b86f0f446b331285"
   },
-  "database/factories/UserFactory.php": {
-    "mtime": 1773507240.0,
-    "seen": 1790347749.8282092,
-    "ast_hash": "1c9f381f9c2bc3027971a3bfdbe99164",
-    "semantic_hash": "1c9f381f9c2bc3027971a3bfdbe99164"
-  },
   "database/migrations/0001_01_01_000000_create_users_table.php": {
     "mtime": 1773507240.0,
     "seen": 1790347749.828212,
@@ -167,23 +161,11 @@
     "ast_hash": "d0ce4624021f5b3121a91c406a5f79f2",
     "semantic_hash": "d0ce4624021f5b3121a91c406a5f79f2"
   },
-  "database/migrations/2026_09_18_175902_create_personal_access_tokens_table.php": {
-    "mtime": 1789754341.3171494,
-    "seen": 1790347749.828227,
-    "ast_hash": "eb77af89d184f92ec893eff344c34999",
-    "semantic_hash": "eb77af89d184f92ec893eff344c34999"
-  },
   "database/seeders/DatabaseSeeder.php": {
-    "mtime": 1789752493.3188777,
-    "seen": 1790347749.8282301,
-    "ast_hash": "e1b766329a34c5588c57a7108ce9bfa2",
-    "semantic_hash": "e1b766329a34c5588c57a7108ce9bfa2"
-  },
-  "database/seeders/RbacSeeder.php": {
-    "mtime": 1789753802.4983783,
-    "seen": 1790347749.8282332,
-    "ast_hash": "e2dacdff0497a1f62b9e6d917cfd15d7",
-    "semantic_hash": "e2dacdff0497a1f62b9e6d917cfd15d7"
+    "mtime": 1790383250.9317193,
+    "seen": 1790396086.8357203,
+    "ast_hash": "7c42ec6422972e4a76a8378291c17703",
+    "semantic_hash": ""
   },
   "public/index.php": {
     "mtime": 1773507240.0,
@@ -238,5 +220,29 @@
     "seen": 1790347749.8282607,
     "ast_hash": "3f679e9508c834f0ad95943455fcd836",
     "semantic_hash": "3f679e9508c834f0ad95943455fcd836"
+  },
+  "AGENTS.md": {
+    "mtime": 1790380882.7870739,
+    "seen": 1790396086.8357556,
+    "ast_hash": "a9ee3526cb71a8134a69d6862ee3364e",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1790307685.6742723,
+    "seen": 1790396086.835759,
+    "ast_hash": "d0553b884fddace7d88d90df62cf00f4",
+    "semantic_hash": ""
+  },
+  "public/robots.txt": {
+    "mtime": 1773507240.0,
+    "seen": 1790396086.835762,
+    "ast_hash": "b6216d61c03e6ce0c9aea6ca7808f7ca",
+    "semantic_hash": ""
+  },
+  "public/vendor/scribe/images/navbar.png": {
+    "mtime": 1788101406.2659543,
+    "seen": 1790396086.8357646,
+    "ast_hash": "79ee59c0d413e82b16caa328d44efbe6",
+    "semantic_hash": ""
   }
 }
