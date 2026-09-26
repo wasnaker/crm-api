@@ -1,14 +1,16 @@
-# AGENTS.md — spine.lan (crm-admin)
+# AGENTS.md — crm-api.lan (crm-api)
 
-> Catatan operasional untuk agent AI. Diperbarui: 2026-09-24.
+> Catatan operasional untuk agent AI. Diperbarui: 2026-09-26.
 
 ## Project
 - **Repo**: `https://github.com/laravelspine/laravelspine` (paket source)
-- **Aplikasi**: spine.lan — konsumen paket `spine/laravel-spine`
+- **Aplikasi**: crm-api.lan — host Laravel yang mengonsumsi paket `spine/laravel-spine`
 - **Framework**: Laravel 12.68.0
 - **PHP**: 8.4.17
 - **Type**: API-only backend (no web routes, no views)
 - **Auth**: Laravel Sanctum (PAT)
+- **Host ini tidak memiliki model/service domain miliknya sendiri** — semuanya
+  milik package `spine/laravel-spine`.
 
 ## Infrastruktur
 | Item | Nilai |
@@ -16,43 +18,46 @@
 | Domain | `spine.lan` → `192.168.18.17` |
 | Nginx vhost | `/www/server/nginx/conf/vhost/nextjs.spine.lan.conf` (shared) |
 | PHP-FPM socket | `/tmp/php-cgi-84.sock` |
-| Project root | `/www/wwwroot/spine.lan/` |
-| Public | `/www/wwwroot/spine.lan/public/` |
-| Database | `spine` / user `spine` / pass `spine_dev_2026` |
-| DB host | `127.0.0.1:3306` |
-| Frontend domain | `crm-web.lan` → `192.168.18.17` |
+| Project root | `/www/wwwroot/crm-api.lan/` |
+| Public | `/www/wwwroot/crm-api.lan/public/` |
+| Database | `crm_api` @ `127.0.0.1:3306` |
+| Frontend domain | `crm-web.lan` |
 | Frontend root | `/www/wwwroot/crm-web/` |
 
 ## Environment
 - `.env` di-.gitignore, `.env.example` di-push.
-- APP_URL = `http://spine.lan`
-- APP_DEBUG = `true` (local)
+- APP_URL = `http://crm-api.lan`
+- APP_ENV = `local`
+- CACHE_STORE / SESSION_DRIVER / QUEUE_CONNECTION = `redis` (sudah aktif & terverifikasi ping OK)
 
 ## Routing
 - `bootstrap/app.php`: api + web + console + health
-- `routes/api.php`: prefix `v1`, 106 routes (package) + 7 custom routes
+- `routes/api.php`: **kosong by design** — semua route datang dari package via
+  `SpineServiceProvider::loadRoutes()` (104 route `api/v1/*`)
 - `routes/console.php`: artisan commands
 - `routes/web.php`: default welcome (bisa diubah)
 
 ## Komando Umum
 ```bash
-cd /www/wwwroot/spine.lan
+cd /www/wwwroot/crm-api.lan
 
 # Artisan
 php artisan route:list
-php artisan migrate
+php artisan migrate          # JANGAN migrate:fresh di DB ini
 php artisan tinker
 php artisan rbac:sync-core
 
 # Cache
-php artisan config:clear
-php artisan route:clear
-php artisan cache:clear
+php artisan optimize:clear
 
 # Test
-curl -s http://spine.lan/api/v1/test
-curl -s http://spine.lan/api/v1/health
+curl -s http://crm-api.lan/api/v1/test
+curl -s http://crm-api.lan/api/v1/health
 ```
+
+> ⚠️ **`php artisan migrate:fresh` tidak boleh dipakai** di `crm_api` — perintah itu
+> menjatuhkan seluruh tabel tiap kali dijalankan. Untuk menerapkan ulang schema
+> pakai `php artisan migrate:reset` lalu `php artisan migrate`.
 
 ## Status Backend (v1.6c)
 - ✅ Infrastruktur: Laravel 12, DB, routes, packages terpasang
@@ -138,30 +143,40 @@ Settings, Activity Logs, Files, Mail, Notifications, Roles, Permissions, Users, 
 
 ## Konvensi Penulisan Kode
 
-### Package (`/www/wwwroot/laravelspine/public_html/`)
-Core platform features — semua konsumen `spine/laravel-spine` butuh ini:
+### Package — `/www/wwwroot/laravelspine` (SATU-SUMBER)
+Semua fitur core milik package, **bukan** milik host ini:
 - `src/Http/Controllers/` — AuthController, UserController, dll
 - `src/Services/` — TwoFactorService, RegisterOtpService, IpGuardService, dll
-- `routes/api.php` — route API core platform
+- `src/Models/` — model core (ActivityLog, CustomMeta, IpBan, dll)
 - `src/Events/` — event classes
-- `src/Models/` — model core (ActivityLog, CustomMeta, dll)
+- `routes/api.php` — route API core platform
 - `database/migrations/` — migration core
 - `lang/*.json` — translation files (shared)
 
-⚠️ `vendor/spine/laravel-spine` adalah **symlink** ke `/www/wwwroot/laravelspine/public_html/`. Mengedit `vendor/` = mengedit package source. **Benar untuk fitur core.**
+`vendor/spine/laravel-spine` adalah **symlink** ke `/www/wwwroot/laravelspine/`.
+Composer memakai `type: path` dengan symlink, jadi **setiap edit di
+`/www/wwwroot/laravelspine` langsung terpakai tanpa perlu `composer update`
+maupun sync manual**.
+
+> 🚫 **Jangan pernah membuat salinan package kedua.** Riwayat September 2026:
+> `/www/wwwroot/laravelspine/public_html/` pernah ada sebagai clone terpisah
+> (gitlink) dan ikut_symlink oleh host, sehingga edit di root tidak pernah
+> sampai ke host — tiap perubahan harus dicopy manual. Clone tersebut sudah
+> dipindahkan ke `/www/wwwroot/old-laravelspine/` (arsip, jangan dipakai) dan
+> gitlink-nya sudah dilepas dari repo root.
 
 Commit & push ke `laravelspine` setelah fitur core selesai.
 
-### Aplikasi (`/www/wwwroot/spine.lan/app/`)
-Application-specific — khusus untuk spine.lan:
-- `app/Http/Controllers/` — PublicController, MenuController, CronController
-- `config/` — menus.php, public_content.php (override/tambahan)
-- `database/migrations/` — migration tambahan (ulid, language kolom)
-- `routes/api.php` — route tambahan spine.lan
-- `app/Console/Commands/` — AppCron command
+### Aplikasi (`/www/wwwroot/crm-api.lan/`)
+Hanya yang benar-benar spesifik host:
+- `config/` — override config package bila perlu
+- `bootstrap/app.php` — middleware/exception wiring
+- `database/migrations/` — migrasi yang benar-benar host-specific saja
+  (duplikat `personal_access_tokens` pernah terjadi di sini — sudah dihapus)
+- `routes/api.php` — sengaja kosong; route dari package
 
 ### Frontend (`/www/wwwroot/crm-web/`)
-Next.js + Inertia + React — hanya frontend:
+Inertia + React — hanya frontend:
 - `resources/js/` — semua komponen React
 - `resources/css/` — Tailwind + design tokens
 - `app/Http/Controllers/` — controller Inertia (Welcome, About, dll)
@@ -172,17 +187,15 @@ Next.js + Inertia + React — hanya frontend:
 
 ## Git
 ```bash
-cd /www/wwwroot/spine.lan
+cd /www/wwwroot/crm-api.lan
 git remote -v
-# origin  https://github.com/laravelspine/laravelspine.git
-git branch -m main
 ```
 
 ## Referensi PRD
 - Source: `/home/aapanel/perfex-porting-docs/docs/prd/`
-- Sinkron: `/www/wwwroot/app.ciptamasjaya.co.id/perfex_crm/docs/prd/`
 - Commit terakhir: `ce7829a` (v1.6b) → sekarang v1.6c
 
-## Referensi laravelspine
-- Source: `/www/wwwroot/laravelspine/public_html/`
-- Commit terbaru: `7a9c943`
+## Referensi package
+- Source of truth: `/www/wwwroot/laravelspine/`
+- Commit: `9e73a48`
+- Arsip clone lama (jangan dipakai): `/www/wwwroot/old-laravelspine/`
