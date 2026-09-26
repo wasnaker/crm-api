@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d740389279ae6e62265e699ec9e1b647",
+    "content-hash": "1f147799b4e9c9ebccff63e4aa271e4b",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5906,8 +5906,8 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "/www/wwwroot/laravelspine/public_html",
-                "reference": "492d47b6179c225650be8d2ebd25f2f482242509"
+                "url": "/www/wwwroot/laravelspine",
+                "reference": "0ad212d524ca84b5be197ca43174ef6b4bba5498"
             },
             "require": {
                 "barryvdh/laravel-dompdf": "^3.0",

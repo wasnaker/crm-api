@@ -70,7 +70,7 @@
         {
             "name": "spine",
             "type": "path",
-            "url": "/www/wwwroot/laravelspine/public_html"
+            "url": "/www/wwwroot/laravelspine"
         }
     ]
 }
