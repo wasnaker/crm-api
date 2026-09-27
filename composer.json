@@ -30,7 +30,8 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "Modules\\SampleTasks\\": "Modules/SampleTasks/",
-            "Modules\\Sample\\": "Modules/Sample/"
+            "Modules\\Sample\\": "Modules/Sample/",
+            "Modules\\Region\\": "Modules/Region/"
         }
     },
     "autoload-dev": {
