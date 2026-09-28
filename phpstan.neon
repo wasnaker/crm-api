@@ -1,0 +1,26 @@
+parameters:
+    level: 5
+    paths:
+        - config
+        - routes
+        - database
+        - tests
+    # Console/stubs hold {{Entity}} generator templates, not valid PHP.
+    excludePaths:
+        - Modules/*/Console/stubs/*
+        - Modules/*/app/Console/stubs/*
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        - '#Function ReflectiveException not found#'
+        - '#Property Spine\\Models\\User::\$\$password#'
+        - '#Call to an undefined method.*::getAllPermissions#'
+        - '#Call to an undefined method.*::createToken#'
+        - '#Property Illuminate\\Database\\Eloquent\\Collection.*::\$\$id#'
+        - '#Method.*should return Spine\\Models\\User#'
+        - '#Parameter.*expects Spine\\Models\\User#'
+        - '#Anonymous function has an unused use \$token#'
+        - '#Call to method PHPUnit.*Assert::assertTrue.*with true#'
+        - '#Call to an undefined method.*assertExists#'
+
+includes:
+    - vendor/larastan/larastan/extension.neon

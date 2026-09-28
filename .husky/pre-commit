@@ -1,0 +1,3 @@
+#!/bin/sh
+vendor/bin/pint --test || exit 1
+vendor/bin/phpstan analyse --memory-limit=512M || exit 1
