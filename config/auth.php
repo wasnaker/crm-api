@@ -1,12 +1,13 @@
 <?php
 
 declare(strict_types=1);
+use Spine\Models\User;
 
 return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \Spine\Models\User::class,
+            'model' => User::class,
         ],
     ],
     'passwords' => [

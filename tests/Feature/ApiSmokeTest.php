@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Broadcasting\BroadcastController;
+use Illuminate\Support\Facades\Route;
 use Tests\TestCase;
 
 /**
@@ -56,7 +58,7 @@ class ApiSmokeTest extends TestCase
 
     public function test_every_api_v1_controller_route_is_served_by_the_package(): void
     {
-        $routes = collect(\Illuminate\Support\Facades\Route::getRoutes()->getRoutes())
+        $routes = collect(Route::getRoutes()->getRoutes())
             ->filter(fn ($route) => str_starts_with($route->uri(), 'api/v1'))
             ->filter(fn ($route) => $route->getControllerClass() !== null);
 
@@ -69,13 +71,13 @@ class ApiSmokeTest extends TestCase
         // Framework-owned routes that the package mounts on purpose.
         $frameworkOwned = [
             // Reverb/Echo channel auth; the package only registers the route.
-            'api/v1/broadcasting/auth' => \Illuminate\Broadcasting\BroadcastController::class,
+            'api/v1/broadcasting/auth' => BroadcastController::class,
         ];
 
         $foreign = $routes
             ->reject(fn ($route) => str_starts_with(ltrim($route->getControllerClass(), '\\'), 'Spine\\')
                 || ltrim($frameworkOwned[$route->uri()] ?? '', '\\') === ltrim($route->getControllerClass(), '\\'))
-            ->map(fn ($route) => $route->uri() . ' -> ' . $route->getControllerClass())
+            ->map(fn ($route) => $route->uri().' -> '.$route->getControllerClass())
             ->values()
             ->all();
 
@@ -96,7 +98,7 @@ class ApiSmokeTest extends TestCase
 
     protected function routeExists(string $method, string $uri): bool
     {
-        return collect(\Illuminate\Support\Facades\Route::getRoutes()->getRoutes())
+        return collect(Route::getRoutes()->getRoutes())
             ->contains(fn ($route) => $route->uri() === $uri
                 && in_array($method, $route->methods(), true));
     }

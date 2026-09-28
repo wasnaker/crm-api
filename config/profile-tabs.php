@@ -14,25 +14,25 @@ declare(strict_types=1);
  */
 return [
     [
-        'slug'     => 'account',
-        'label'    => 'Account',
-        'icon'     => '👤',
+        'slug' => 'account',
+        'label' => 'Account',
+        'icon' => '👤',
         'position' => 5,
-        'fields'   => [
+        'fields' => [
             [
-                'key'     => 'name',
-                'label'   => 'Full Name',
-                'type'    => 'text',
+                'key' => 'name',
+                'label' => 'Full Name',
+                'type' => 'text',
             ],
             [
-                'key'     => 'email',
-                'label'   => 'Email',
-                'type'    => 'text',
+                'key' => 'email',
+                'label' => 'Email',
+                'type' => 'text',
             ],
             [
-                'key'     => 'language',
-                'label'   => 'Language',
-                'type'    => 'select',
+                'key' => 'language',
+                'label' => 'Language',
+                'type' => 'select',
                 'options' => [
                     ['value' => 'en', 'label' => 'English'],
                     ['value' => 'id', 'label' => 'Indonesia'],
@@ -45,44 +45,44 @@ return [
         ],
     ],
     [
-        'slug'     => 'security',
-        'label'    => 'Security',
-        'icon'     => '🔐',
+        'slug' => 'security',
+        'label' => 'Security',
+        'icon' => '🔐',
         'position' => 10,
-        'fields'   => [
+        'fields' => [
             [
-                'key'     => 'current_password',
-                'label'   => 'Current Password',
-                'type'    => 'password',
+                'key' => 'current_password',
+                'label' => 'Current Password',
+                'type' => 'password',
             ],
             [
-                'key'     => 'new_password',
-                'label'   => 'New Password',
-                'type'    => 'password',
+                'key' => 'new_password',
+                'label' => 'New Password',
+                'type' => 'password',
             ],
             [
-                'key'     => 'new_password_confirmation',
-                'label'   => 'Confirm New Password',
-                'type'    => 'password',
+                'key' => 'new_password_confirmation',
+                'label' => 'Confirm New Password',
+                'type' => 'password',
             ],
         ],
     ],
     [
-        'slug'     => 'notifications',
-        'label'    => 'Notifications',
-        'icon'     => '🔔',
+        'slug' => 'notifications',
+        'label' => 'Notifications',
+        'icon' => '🔔',
         'position' => 15,
-        'fields'   => [
+        'fields' => [
             [
-                'key'     => 'email_notifications',
-                'label'   => 'Email Notifications',
-                'type'    => 'checkbox',
+                'key' => 'email_notifications',
+                'label' => 'Email Notifications',
+                'type' => 'checkbox',
                 'default' => '1',
             ],
             [
-                'key'     => 'browser_notifications',
-                'label'   => 'Browser Notifications',
-                'type'    => 'checkbox',
+                'key' => 'browser_notifications',
+                'label' => 'Browser Notifications',
+                'type' => 'checkbox',
                 'default' => '0',
             ],
         ],

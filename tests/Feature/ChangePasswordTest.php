@@ -3,10 +3,12 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use PHPUnit\Framework\Attributes\DataProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Spine\Events\PasswordChanged;
 use Spine\Models\User;
 use Tests\TestCase;
@@ -50,7 +52,7 @@ class ChangePasswordTest extends TestCase
     public function test_the_route_exists(): void
     {
         $this->assertTrue(
-            collect(\Illuminate\Support\Facades\Route::getRoutes()->getRoutes())
+            collect(Route::getRoutes()->getRoutes())
                 ->contains(fn ($r) => $r->uri() === 'api/v1/auth/password'
                     && in_array('PUT', $r->methods(), true)),
             'PUT api/v1/auth/password is not registered'
@@ -198,7 +200,7 @@ class ChangePasswordTest extends TestCase
      */
     protected function statusForToken(string $token): int
     {
-        \Illuminate\Support\Facades\Auth::forgetGuards();
+        Auth::forgetGuards();
 
         return $this->withToken($token)->getJson('/api/v1/auth/me')->status();
     }
@@ -209,7 +211,7 @@ class ChangePasswordTest extends TestCase
 
         $this->withToken($token)->putJson('/api/v1/auth/password', $this->payload())->assertOk();
 
-        Event::assertDispatched(PasswordChanged::class, function (PasswordChanged $event) use ($token) {
+        Event::assertDispatched(PasswordChanged::class, function (PasswordChanged $event) {
             return $event->user->is($this->user)
                 && $event->revokedSessions === 0
                 && $event->tokenId !== null;
@@ -256,7 +258,7 @@ class ChangePasswordTest extends TestCase
 
     public function test_a_long_password_is_accepted(): void
     {
-        $long = Str::random(72) . 'Aa1!';
+        $long = Str::random(72).'Aa1!';
 
         $this->withToken($this->token())
             ->putJson('/api/v1/auth/password', $this->payload([

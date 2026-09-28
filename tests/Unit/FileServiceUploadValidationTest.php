@@ -3,9 +3,11 @@
 namespace Tests\Unit;
 
 use Illuminate\Http\UploadedFile;
-use PHPUnit\Framework\Attributes\DataProvider;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
+use PHPUnit\Framework\Attributes\DataProvider;
+use Spine\Events\FileUploading;
 use Spine\Services\FileService;
 use Tests\TestCase;
 
@@ -17,7 +19,7 @@ class FileServiceUploadValidationTest extends TestCase
     {
         parent::setUp();
 
-        $this->service = new FileService();
+        $this->service = new FileService;
 
         // Every test gets a fake disk. Without this a test whose expectation
         // fails can fall through into storeUpload() and write a real file into
@@ -113,7 +115,7 @@ class FileServiceUploadValidationTest extends TestCase
     public function test_validation_runs_before_the_file_uploading_event(): void
     {
         $dispatched = false;
-        \Illuminate\Support\Facades\Event::listen(\Spine\Events\FileUploading::class, function () use (&$dispatched) {
+        Event::listen(FileUploading::class, function () use (&$dispatched) {
             $dispatched = true;
         });
 
@@ -176,7 +178,7 @@ class FileServiceUploadValidationTest extends TestCase
 
             // The quoted extension comes from our own template, so only the
             // client-controlled characters are asserted absent.
-            foreach (["<", ">", "'", "\\"] as $hostile) {
+            foreach (['<', '>', "'", '\\'] as $hostile) {
                 $this->assertStringNotContainsString($hostile, $message);
             }
 

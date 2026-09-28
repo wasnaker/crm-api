@@ -133,5 +133,5 @@ return [
         ],
     ],
 
-    'settings_tabs' => include __DIR__ . '/../vendor/spine/laravel-spine/src/Config/settings-tabs.php',
+    'settings_tabs' => include __DIR__.'/../vendor/spine/laravel-spine/src/Config/settings-tabs.php',
 ];

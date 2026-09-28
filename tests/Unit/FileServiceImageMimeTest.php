@@ -3,8 +3,10 @@
 namespace Tests\Unit;
 
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
+use Spine\Events\FileUploading;
 use Spine\Services\FileService;
 use Tests\TestCase;
 
@@ -23,7 +25,7 @@ class FileServiceImageMimeTest extends TestCase
     {
         parent::setUp();
 
-        $this->service = new FileService();
+        $this->service = new FileService;
 
         // Every test gets a fake disk. Without this a test whose expectation
         // fails can fall through into storeUpload() and write a real file into
@@ -74,7 +76,7 @@ class FileServiceImageMimeTest extends TestCase
     protected function jpegBytes(): string
     {
         return "\xFF\xD8\xFF\xE0\x00\x10JFIF\x00\x01\x01\x00\x00\x01\x00\x01\x00\x00"
-            . "\xFF\xDB\x00C\x00" . str_repeat("\x08", 64) . "\xFF\xD9";
+            ."\xFF\xDB\x00C\x00".str_repeat("\x08", 64)."\xFF\xD9";
     }
 
     public function test_a_real_png_passes(): void
@@ -182,7 +184,7 @@ class FileServiceImageMimeTest extends TestCase
     public function test_the_refusal_happens_before_the_event_is_dispatched(): void
     {
         $dispatched = false;
-        \Illuminate\Support\Facades\Event::listen(\Spine\Events\FileUploading::class, function () use (&$dispatched) {
+        Event::listen(FileUploading::class, function () use (&$dispatched) {
             $dispatched = true;
         });
 
